@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Lottie Elementor
- * Description: Elementor sample plugin.
+ * Description: Use Lottie animations in Elementor
  * Plugin URI:  https://elementor.com/
  * Version:     1.2.0
- * Author:      Author Name
+ * Author:      Sakri Koskimies
  * Author URI:  https://elementor.com/
  * Text Domain: lottie-elementor
  */
