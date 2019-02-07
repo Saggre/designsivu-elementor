@@ -41,7 +41,7 @@ class Lottie extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Lottie Animation', 'lottie-elementor' );
+		return __( 'DS Lottie Animation', 'lottie-elementor' );
 	}
 
 	/**
@@ -54,7 +54,7 @@ class Lottie extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-posts-ticker';
+		return 'fa fa-eye';
 	}
 
 	/**

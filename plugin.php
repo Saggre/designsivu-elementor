@@ -48,7 +48,8 @@ class Plugin {
 	 * @access public
 	 */
 	public function widget_scripts() {
-		wp_enqueue_script( 'lottie-animation', plugins_url( '/assets/js/lottie.min.js', __FILE__ ), [ 'jquery' ], '5.4.3', false );
+		wp_enqueue_script( 'lottie', plugins_url( '/assets/js/lottie.min.js', __FILE__ ), [ 'jquery' ], '5.4.3', false );
+		wp_enqueue_script( 'tilt', plugins_url( '/assets/js/tilt.min.js', __FILE__ ), [ 'jquery' ], '1.2.1', false );
 	}
 
 	/**
@@ -61,6 +62,7 @@ class Plugin {
 	 */
 	private function include_widgets_files() {
 		require_once( __DIR__ . '/widgets/lottie.php' );
+		require_once( __DIR__ . '/widgets/tilt.php' );
 	}
 
 	/**
@@ -77,6 +79,7 @@ class Plugin {
 
 		// Register Widgets
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Lottie() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\Tilt() );
 	}
 
 	/**
