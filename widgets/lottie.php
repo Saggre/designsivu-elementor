@@ -116,21 +116,9 @@ class Lottie extends Widget_Base {
 		);
 
 		$this->add_control(
-			'max_width',
-			[
-				'label'   => __( 'Max Width', 'lottie-elementor' ),
-				'type'    => \Elementor\Controls_Manager::NUMBER,
-				'min'     => 0,
-				'max'     => 999999,
-				'step'    => 1,
-				'default' => 256,
-			]
-		);
-
-		$this->add_control(
 			'max_height',
 			[
-				'label'   => __( 'Max Height', 'lottie-elementor' ),
+				'label'   => __( 'Height', 'lottie-elementor' ),
 				'type'    => \Elementor\Controls_Manager::NUMBER,
 				'min'     => 0,
 				'max'     => 999999,
@@ -190,11 +178,10 @@ class Lottie extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$uid      = 'lottie_' . uniqid();
 
-		$max_width  = $settings['max_width'];
 		$max_height = $settings['max_height'];
 
 		echo '<div style="text-align:' . $settings['text_align'] . ';">';
-		echo '<div style="width: ' . $max_width . 'px; height: ' . $max_height . 'px; display: inline-block;" class="lottie-elementor-item" id="' . $uid . '">';
+		echo '<div style="width: auto; height: ' . $max_height . 'px; display: inline-block;" class="lottie-elementor-item" id="' . $uid . '">';
 		echo '</div>';
 		echo '</div>';
 
