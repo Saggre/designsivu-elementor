@@ -1,0 +1,53 @@
+.designsivu-elementor-vertical-menu-item {
+    display: block;
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+}
+
+.designsivu-elementor-vertical-menu {
+    z-index: 9999;
+    position: fixed;
+    padding: 20px 8px;
+}
+
+.designsivu-elementor-vertical-menu-spacing {
+    display: inline-block;
+    width: 100%;
+}
+
+.designsivu-elementor-vertical-menu.designsivu-elementor-vertical-menu-top-left {
+    left: 0;
+    top: 0;
+    transform: translate(0, 0);
+}
+
+.designsivu-elementor-vertical-menu.designsivu-elementor-vertical-menu-middle-left {
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.designsivu-elementor-vertical-menu.designsivu-elementor-vertical-menu-bottom-left {
+    left: 0;
+    bottom: 0;
+    transform: translate(0, 0);
+}
+
+.designsivu-elementor-vertical-menu.designsivu-elementor-vertical-menu-top-right {
+    right: 0;
+    top: 0;
+    transform: translate(0, 0);
+}
+
+.designsivu-elementor-vertical-menu.designsivu-elementor-vertical-menu-middle-right {
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.designsivu-elementor-vertical-menu.designsivu-elementor-vertical-menu-bottom-right {
+    right: 0;
+    bottom: 0;
+    transform: translate(0, 0);
+}

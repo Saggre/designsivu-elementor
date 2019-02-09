@@ -1,6 +1,6 @@
 <?php
 
-namespace LottieElementor;
+namespace DesignsivuElementor;
 
 /**
  * Class Plugin
@@ -49,10 +49,18 @@ class Plugin
      * @since 1.2.0
      * @access public
      */
-    public function widget_scripts()
+    public function enqueue_scripts()
     {
         wp_enqueue_script('lottie', plugins_url('/assets/js/lottie.min.js', __FILE__), ['jquery'], '5.4.3', false);
         wp_enqueue_script('tilt', plugins_url('/assets/js/tilt.min.js', __FILE__), ['jquery'], '1.2.1', false);
+    }
+
+    /**
+     *  enqueue styles
+     */
+    public function enqueue_styles()
+    {
+        wp_enqueue_style('designsivu-elementor-style', plugins_url('/assets/css/designsivu-elementor-style.css', __FILE__));
     }
 
     /**
@@ -102,10 +110,24 @@ class Plugin
     {
 
         // Register widget scripts
-        add_action('elementor/frontend/after_register_scripts', [$this, 'widget_scripts']);
+        add_action('elementor/frontend/after_register_scripts', [$this, 'enqueue_scripts']);
+
+        add_action('elementor/frontend/after_enqueue_styles', [$this, 'enqueue_styles']);
 
         // Register widgets
         add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
+
+        add_action(	'elementor/element/parse_css', function( $post_css, $element ) {
+            /*$item_width = some_get_theme_config_function( 'item_width' );
+            /**
+             * @var \Elementor\Post_CSS_File $post_css
+             * @var \Elementor\Element_Base  $element
+             */
+            /*$post_css->get_stylesheet()->add_rules( $element->get_unique_selector(), [
+                'width' => $item_width . 'px',
+            ] );*/
+        }, 10, 2 );
+
     }
 }
 
