@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Any custom code should go inside Plugin Class in the plugin.php file.
  * @since 1.2.0
  */
-final class Lottie_Elementor {
+final class Designsivu_Elementor {
 
 	/**
 	 * Plugin Version
@@ -189,5 +189,5 @@ final class Lottie_Elementor {
 	}
 }
 
-// Instantiate Lottie_Elementor.
-new Lottie_Elementor();
+// Instantiate Designsivu_Elementor.
+new Designsivu_Elementor();
