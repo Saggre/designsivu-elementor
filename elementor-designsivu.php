@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: Lottie Elementor
- * Description: Use Lottie animations in Elementor
+ * Plugin Name: Designsivu + Elementor
+ * Description: Designsivu.fi addons for Elementor
  * Plugin URI:  https://elementor.com/
  * Version:     1.2.0
  * Author:      Sakri Koskimies
  * Author URI:  https://elementor.com/
- * Text Domain: lottie-elementor
+ * Text Domain: designsivu-elementor
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -75,7 +75,7 @@ final class Lottie_Elementor {
 	 * @access public
 	 */
 	public function i18n() {
-		load_plugin_textdomain( 'lottie-elementor' );
+		load_plugin_textdomain( 'designsivu-elementor' );
 	}
 
 	/**
@@ -132,9 +132,9 @@ final class Lottie_Elementor {
 
 		$message = sprintf(
 		/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'lottie-elementor' ),
-			'<strong>' . esc_html__( 'Lottie Elementor', 'lottie-elementor' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'lottie-elementor' ) . '</strong>'
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'designsivu-elementor' ),
+			'<strong>' . esc_html__( 'Lottie Elementor', 'designsivu-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'designsivu-elementor' ) . '</strong>'
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -155,9 +155,9 @@ final class Lottie_Elementor {
 
 		$message = sprintf(
 		/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'lottie-elementor' ),
-			'<strong>' . esc_html__( 'Lottie Elementor', 'lottie-elementor' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'lottie-elementor' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'designsivu-elementor' ),
+			'<strong>' . esc_html__( 'Lottie Elementor', 'designsivu-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'designsivu-elementor' ) . '</strong>',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
 
@@ -179,9 +179,9 @@ final class Lottie_Elementor {
 
 		$message = sprintf(
 		/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'lottie-elementor' ),
-			'<strong>' . esc_html__( 'Lottie Elementor', 'lottie-elementor' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'lottie-elementor' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'designsivu-elementor' ),
+			'<strong>' . esc_html__( 'Lottie Elementor', 'designsivu-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'PHP', 'designsivu-elementor' ) . '</strong>',
 			self::MINIMUM_PHP_VERSION
 		);
 

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Lottie extends Widget_Base {
+class Scrolldown extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -41,7 +41,7 @@ class Lottie extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'DS Lottie Animation', 'designsivu-elementor' );
+		return __( 'DS Scrolldown', 'designsivu-elementor' );
 	}
 
 	/**

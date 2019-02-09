@@ -41,7 +41,7 @@ class Tilt extends Widget_Image {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'DS Tilt Image', 'lottie-elementor' );
+		return __( 'DS Tilt Image', 'designsivu-elementor' );
 	}
 
 	/**
@@ -87,7 +87,7 @@ class Tilt extends Widget_Image {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'lottie-elementor' ];
+		return [ 'designsivu-elementor' ];
 	}
 
 	/**
