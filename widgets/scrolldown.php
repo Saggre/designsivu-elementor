@@ -293,28 +293,30 @@ class Scrolldown extends Widget_Base
         }
 
         ?>
-        <div class="designsivu-elementor-vertical-menu <?php echo $position_class ?>">
-            <?php
-            if ($settings['sidekick_list']) {
-                $index = 1;
-                foreach ($settings['sidekick_list'] as $item) {
-                    $target = $settings['website_link']['is_external'] ? ' target="_blank"' : '';
-                    $nofollow = $settings['website_link']['nofollow'] ? ' rel="nofollow"' : '';
-                    ?>
-                    <a <?php echo($item['list_link']['url'] ? 'href="' . $item['list_link']['url'] . '"' : ''); ?>
-                            class="designsivu-elementor-vertical-menu-item">
-                        <?php echo $item['list_title'] ?>
-                        <i class="<?php echo $item['list_icon'] ?>" aria-hidden="true"></i>
-                    </a>
-                    <?php if ($index !== count($settings['sidekick_list'])) { ?>
-                        <div class="designsivu-elementor-vertical-menu-spacing">
-                    <?php } ?>
-                    </div>
-                    <?php
-                    $index++;
+        <div class="designsivu-elementor-vertical-menu-container">
+            <div class="designsivu-elementor-vertical-menu <?php echo $position_class ?>">
+                <?php
+                if ($settings['sidekick_list']) {
+                    $index = 1;
+                    foreach ($settings['sidekick_list'] as $item) {
+                        $target = $settings['website_link']['is_external'] ? ' target="_blank"' : '';
+                        $nofollow = $settings['website_link']['nofollow'] ? ' rel="nofollow"' : '';
+                        ?>
+                        <a <?php echo($item['list_link']['url'] ? 'href="' . $item['list_link']['url'] . '"' : ''); ?>
+                                class="designsivu-elementor-vertical-menu-item">
+                            <?php echo $item['list_title'] ?>
+                            <i class="<?php echo $item['list_icon'] ?>" aria-hidden="true"></i>
+                        </a>
+                        <?php if ($index !== count($settings['sidekick_list'])) { ?>
+                            <div class="designsivu-elementor-vertical-menu-spacing">
+                        <?php } ?>
+                        </div>
+                        <?php
+                        $index++;
+                    }
                 }
-            }
-            ?>
+                ?>
+            </div>
         </div>
         <?php
     }

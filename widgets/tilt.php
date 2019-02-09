@@ -96,13 +96,12 @@ class Tilt extends Widget_Image
             return;
         }
         $has_caption = $this->has_caption($settings);
-        //$this->add_render_attribute( 'wrapper', 'class', 'elementor-image' );
+        $this->add_render_attribute('container', 'class', 'designsivu-elementor-tilt-image-container');
         $this->add_render_attribute(
             'wrapper',
             [
                 'id' => $uid,
-                'class' => ['elementor-image', 'tilt-image'],
-                'style' => 'display: inline-block;'
+                'class' => ['elementor-image', 'designsivu-elementor-tilt-image'],
             ]
         );
 

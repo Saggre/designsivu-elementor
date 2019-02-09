@@ -1,3 +1,10 @@
+/* sidekick */
+
+.designsivu-elementor-vertical-menu-container, .elementor-widget-sidekick {
+    width: 100%;
+    height: 0;
+}
+
 .designsivu-elementor-vertical-menu-item {
     display: block;
     -webkit-writing-mode: vertical-rl;
@@ -51,3 +58,13 @@
     bottom: 0;
     transform: translate(0, 0);
 }
+
+/* end sidekick */
+
+/* tilt */
+
+.designsivu-elementor-tilt-image {
+    display: inline-block;
+}
+
+/* end tilt */
