@@ -26,12 +26,11 @@ jQuery(function ($) {
             return $(this);
         }
     });
-
-
+    
     $('.blob-container').hover(
         function () {
             var endPath = $(this).attr('morphed-path');
-            $(this).animateBlob(1.2, 1.2, 400, 0, 0, 0,
+            $(this).animateBlob(1, 1, 400, 0, 0, 0,
                 [
                     endPath
                 ]
@@ -39,7 +38,6 @@ jQuery(function ($) {
         },
         function () {
             var startPath = $(this).attr('unmorphed-path');
-
             $(this).animateBlob(1, 1, 400, 0, 0, 0,
                 [
                     startPath
