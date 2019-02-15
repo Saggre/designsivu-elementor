@@ -53,6 +53,9 @@ class Plugin
     {
         wp_enqueue_script('lottie', plugins_url('/assets/js/lottie.min.js', __FILE__), ['jquery'], '5.4.3', false);
         wp_enqueue_script('tilt', plugins_url('/assets/js/tilt.min.js', __FILE__), ['jquery'], '1.2.1', false);
+        wp_enqueue_script('anime', plugins_url('/assets/js/anime.min.js', __FILE__), ['jquery'], '3.0.1', false);
+        wp_enqueue_script('designsivu-elementor', plugins_url('/assets/js/designsivu.elementor.js', __FILE__), ['jquery', 'lottie', 'anime', 'tilt'], '1.0.0', false);
+
     }
 
     /**
@@ -76,6 +79,7 @@ class Plugin
         require_once(__DIR__ . '/widgets/lottie.php');
         require_once(__DIR__ . '/widgets/tilt.php');
         require_once(__DIR__ . '/widgets/scrolldown.php');
+        require_once(__DIR__ . '/widgets/blob.php');
     }
 
     /**
@@ -95,7 +99,7 @@ class Plugin
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Lottie());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Tilt());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Scrolldown());
-
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Blob());
     }
 
     /**
@@ -117,7 +121,7 @@ class Plugin
         // Register widgets
         add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
 
-        add_action(	'elementor/element/parse_css', function( $post_css, $element ) {
+        add_action('elementor/element/parse_css', function ($post_css, $element) {
             /*$item_width = some_get_theme_config_function( 'item_width' );
             /**
              * @var \Elementor\Post_CSS_File $post_css
@@ -126,7 +130,7 @@ class Plugin
             /*$post_css->get_stylesheet()->add_rules( $element->get_unique_selector(), [
                 'width' => $item_width . 'px',
             ] );*/
-        }, 10, 2 );
+        }, 10, 2);
 
     }
 }
