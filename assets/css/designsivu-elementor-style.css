@@ -145,19 +145,26 @@
     font-size: 1.165em;
     font-weight: 600;
     width: 100%;
-    margin: 1em 0 0 0;
     text-align: center;
     letter-spacing: 0.125em;
     color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .item__subtitle {
     font-size: 1em;
     font-weight: 500;
-    margin: 0.5em 0 0;
     text-align: center;
     letter-spacing: 0.15em;
     opacity: 0;
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+}
+
+.blob-wrapper:hover .item__subtitle {
+    opacity: 1;
 }
 
 /* Individual styles */

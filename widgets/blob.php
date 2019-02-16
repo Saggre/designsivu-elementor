@@ -99,6 +99,143 @@ class Blob extends Widget_Base
         );
 
         $this->start_controls_tabs(
+            'title_tabs'
+        );
+
+        $this->start_controls_tab(
+            'blob_title_tab',
+            [
+                'label' => __('Blob Title', 'plugin-name'),
+            ]
+        );
+
+        $this->add_control(
+            'blob_title',
+            [
+                'label' => __('Blob Title', 'plugin-name'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'The quick brown fox',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'label' => __('Blob Title Typography', 'plugin-name'),
+                'name' => 'title_typography',
+                'selector' => '{{WRAPPER}} .blob-container .blob-wrapper .item__title',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Text_Shadow::get_type(),
+            [
+                'label' => __('Blob Title Shadow', 'plugin-domain'),
+                'name' => 'title_shadow',
+                'selector' => '{{WRAPPER}} .blob-container .blob-wrapper .item__title',
+            ]
+        );
+
+        $this->add_control(
+            'blob_title_color',
+            [
+                'label' => __('Blob Title Color', 'plugin-name'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .blob-container .blob-wrapper .item__title' => 'color: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'blob_subtitle_tab',
+            [
+                'label' => __('Blob Subtitle', 'plugin-name'),
+            ]
+        );
+
+        $this->add_control(
+            'blob_subtitle',
+            [
+                'label' => __('Blob Subtitle', 'plugin-name'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'Jumps over the lazy dog',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'label' => __('Blob Subtitle Typography', 'plugin-name'),
+                'name' => 'subtitle_typography',
+                'selector' => '{{WRAPPER}} .blob-container .blob-wrapper .item__subtitle',
+            ]
+        );
+
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Text_Shadow::get_type(),
+            [
+                'label' => __('Blob Title Shadow', 'plugin-domain'),
+                'name' => 'subtitle_shadow',
+                'selector' => '{{WRAPPER}} .blob-container .blob-wrapper .item__subtitle',
+            ]
+        );
+
+        $this->add_control(
+            'blob_subtitle_color',
+            [
+                'label' => __('Blob Subitle Color', 'plugin-name'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#1a1a1a',
+                'selectors' => [
+                    '{{WRAPPER}} .blob-container .blob-wrapper .item__subtitle' => 'color: {{VALUE}}'
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style',
+            [
+                'label' => __('Style', 'designsivu-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'text_align',
+            [
+                'label' => __('Alignment', 'designsivu-elementor'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => __('Left', 'designsivu-elementor'),
+                        'icon' => 'fa fa-align-left',
+                    ],
+                    'center' => [
+                        'title' => __('Center', 'designsivu-elementor'),
+                        'icon' => 'fa fa-align-center',
+                    ],
+                    'right' => [
+                        'title' => __('Right', 'designsivu-elementor'),
+                        'icon' => 'fa fa-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'toggle' => true,
+            ]
+        );
+
+        $this->start_controls_tabs(
             'style_tabs'
         );
 
@@ -112,7 +249,7 @@ class Blob extends Widget_Base
         $this->add_control(
             'color_start',
             [
-                'label' => __('Foreground Color Start', 'plugin-name'),
+                'label' => __('Overlay Color Start', 'plugin-name'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ff0000',
             ]
@@ -121,7 +258,7 @@ class Blob extends Widget_Base
         $this->add_control(
             'color_end',
             [
-                'label' => __('Foreground Color End', 'plugin-name'),
+                'label' => __('Overlay Color End', 'plugin-name'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#e8aa30',
             ]
@@ -161,7 +298,7 @@ class Blob extends Widget_Base
                 'label' => __('Choose Image', 'plugin-name'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
                 'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => '',
                 ]
             ]
         );
@@ -185,40 +322,6 @@ class Blob extends Widget_Base
                     '5' => __('6', 'plugin-domain'),
                     '6' => __('7', 'plugin-domain'),
                 ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-            'section_style',
-            [
-                'label' => __('Style', 'designsivu-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'text_align',
-            [
-                'label' => __('Alignment', 'designsivu-elementor'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
-                        'title' => __('Left', 'designsivu-elementor'),
-                        'icon' => 'fa fa-align-left',
-                    ],
-                    'center' => [
-                        'title' => __('Center', 'designsivu-elementor'),
-                        'icon' => 'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' => __('Right', 'designsivu-elementor'),
-                        'icon' => 'fa fa-align-right',
-                    ],
-                ],
-                'default' => 'center',
-                'toggle' => true,
             ]
         );
 
@@ -302,11 +405,9 @@ class Blob extends Widget_Base
         }
 
         ?>
-        <div class="blob-container"
-             morphed-path="<?php echo($morph_paths[0]); ?>"
-             unmorphed-path="<?php echo($morph_paths[1]); ?>"
-             style="text-align: <?php echo $settings['text_align'] ?>;">
-            <div class="blob-wrapper">
+        <div class="blob-container" style="text-align: <?php echo $settings['text_align'] ?>;">
+            <div class="blob-wrapper" morphed-path="<?php echo($morph_paths[0]); ?>"
+                 unmorphed-path="<?php echo($morph_paths[1]); ?>">
                 <div class="item item--style-1">
                     <svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500" aria-hidden="true">
                         <defs>
@@ -316,6 +417,10 @@ class Blob extends Widget_Base
                                 <stop offset="100%"
                                       style="stop-color:<?php echo($settings['color_end']); ?>;stop-opacity:1"/>
                             </linearGradient>
+                            <pattern id="<?php echo($uid . '_image'); ?>" x="0" y="0" width="1" height="1">
+                                <image width="500" height="500"
+                                       xlink:href="<?php echo($settings['background_image']['url']); ?>"/>
+                            </pattern>
                         </defs>
                         <clipPath id="<?php echo($uid . '_clip'); ?>">
                             <path class="item__clippath"
@@ -323,20 +428,26 @@ class Blob extends Widget_Base
                         </clipPath>
                         <?php if ($settings['background_image']) { ?>
                             <g clip-path="url(#<?php echo($uid . '_clip'); ?>)">
-                                <image class="item__img"
-                                       xlink:href="<?php echo($settings['background_image']['url']); ?>"
-                                       x="0" y="0"/>
+                                <rect class="item__img" fill="url(#<?php echo($uid . '_image'); ?>)" x="0" y="0"
+                                      width="500" height="500"/>
                             </g>
                         <?php } ?>
                         <?php $color_opacity = intval($settings['color_opacity']['size']) / 100.0; ?>
-                        <g style="opacity:<?php echo($color_opacity); ?>;"
-                           clip-path="url(#<?php echo($uid . '_clip'); ?>)">
-                            <rect x="0" y="0" width="500" height="500" fill="url(#<?php echo($uid . '_gradient'); ?>)"/>
-                        </g>
+                        <?php if ($color_opacity > 0) { ?>
+                            <g style="opacity:<?php echo($color_opacity); ?>;"
+                               clip-path="url(#<?php echo($uid . '_clip'); ?>)">
+                                <rect x="0" y="0" width="500" height="500"
+                                      fill="url(#<?php echo($uid . '_gradient'); ?>)"/>
+                            </g>
+                        <?php } ?>
                     </svg>
                     <div class="item__meta">
-                        <h2 class="item__title">Codium fasciculatus</h2>
-                        <h3 class="item__subtitle">Exoplanet Gliese 180 b</h3>
+                        <?php if (!empty($settings['blob_title'])) { ?>
+                            <h2 class="item__title"><?php echo($settings['blob_title']); ?></h2>
+                        <?php } ?>
+                        <?php if (!empty($settings['blob_subtitle'])) { ?>
+                            <h3 class="item__subtitle"><?php echo($settings['blob_subtitle']); ?></h3>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
