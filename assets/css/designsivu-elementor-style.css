@@ -74,6 +74,7 @@
 /* items */
 .blob-container {
     width: 100%;
+    overflow: hidden;
 }
 
 .blob-wrapper {

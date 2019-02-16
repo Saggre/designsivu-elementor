@@ -98,6 +98,37 @@ class Blob extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'blob_size',
+            [
+                'label' => __('Blob Size', 'plugin-domain'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'vw'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 2000,
+                        'step' => 1,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 200,
+                    ],
+                    'vw' => [
+                        'min' => 0,
+                        'max' => 200,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 500,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .blob-container .blob-wrapper' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->start_controls_tabs(
             'title_tabs'
         );
