@@ -122,10 +122,19 @@ class Blob extends Widget_Base
                 'default' => [
                     'unit' => 'px',
                     'size' => 500,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .blob-container .blob-wrapper' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
-                ],
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'blob_force_size',
+            [
+                'label' => __('Force Size', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => __('Yes', 'your-plugin'),
+                'label_off' => __('No', 'your-plugin'),
+                'return_value' => 'yes',
+                'default' => 'no',
             ]
         );
 
@@ -356,6 +365,18 @@ class Blob extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'blob_invert_animation',
+            [
+                'label' => __('Invert Hover Animation', 'plugin-domain'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => __('Yes', 'your-plugin'),
+                'label_off' => __('No', 'your-plugin'),
+                'return_value' => 'yes',
+                'default' => 'no',
+            ]
+        );
+
         $this->end_controls_section();
     }
 
@@ -435,10 +456,15 @@ class Blob extends Widget_Base
                 break;
         }
 
+        $blob_size = '' . $settings['blob_size']['size'] . $settings['blob_size']['unit'];
+        $force_size = $settings['blob_force_size'] === 'yes';
+        $invert_animation = $settings['blob_invert_animation'] === 'yes';
         ?>
         <div class="blob-container" style="text-align: <?php echo $settings['text_align'] ?>;">
-            <div class="blob-wrapper" morphed-path="<?php echo($morph_paths[0]); ?>"
-                 unmorphed-path="<?php echo($morph_paths[1]); ?>">
+            <div class="blob-wrapper"
+                 style="<?php echo($force_size ? 'width:' . $blob_size . ';height:' . $blob_size . ';' : 'max-width:' . $blob_size . ';max-height:' . $blob_size . ';'); ?>"
+                 morphed-path="<?php echo($invert_animation ? $morph_paths[1] : $morph_paths[0]); ?>"
+                 unmorphed-path="<?php echo($invert_animation ? $morph_paths[0] : $morph_paths[1]); ?>">
                 <div class="item item--style-1">
                     <svg class="item__svg" width="500px" height="500px" viewBox="0 0 500 500" aria-hidden="true">
                         <defs>
@@ -455,7 +481,7 @@ class Blob extends Widget_Base
                         </defs>
                         <clipPath id="<?php echo($uid . '_clip'); ?>">
                             <path class="item__clippath"
-                                  d="<?php echo($morph_paths[1]); ?>"/>
+                                  d="<?php echo($invert_animation ? $morph_paths[0] : $morph_paths[1]); ?>"/>
                         </clipPath>
                         <?php if ($settings['background_image']) { ?>
                             <g clip-path="url(#<?php echo($uid . '_clip'); ?>)">

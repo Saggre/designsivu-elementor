@@ -118,5 +118,51 @@ jQuery(function ($) {
 })
 ;
 
-
 /* End blob */
+
+/* Sideways scrolling text */
+
+jQuery(function ($) {
+
+    //Initial setup
+    $('.designsivu-elementor-sideways').each(function () {
+        $(this).css({
+            'height': $(this).height()
+        });
+
+        var $text = $(this).find('.designsivu-elementor-sideways-text');
+
+        $text.css({
+            'position': 'absolute'
+        });
+    });
+
+    var d = $(document).height(),
+        c = $(window).height(),
+        w = $(document).width();
+
+    $(window).on('scroll', function () {
+
+        $('.designsivu-elementor-sideways:visible').each(function () {
+            var s = $(window).scrollTop() - $(this).offset().top + c;
+            var $text = $(this).find('.designsivu-elementor-sideways-text');
+            var speed = parseInt($(this).attr('sideways-speed') / 12.0);
+            var isLeftDirection = $(this).attr('scroll-direction') === 'left';
+
+            scrollPercent = (s / (d - c)) * speed;
+            var position = (scrollPercent * w);
+
+            if (isLeftDirection) {
+                $text.css({
+                    'left': -position
+                });
+            } else {
+                $text.css({
+                    'right': -position
+                });
+            }
+        });
+    });
+});
+
+/* End sideways scrolling text */

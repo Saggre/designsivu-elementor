@@ -74,7 +74,6 @@
 /* items */
 .blob-container {
     width: 100%;
-    overflow: hidden;
 }
 
 .blob-wrapper {
@@ -168,51 +167,6 @@
     opacity: 1;
 }
 
-/* Individual styles */
-.item--style-1 .item__deco {
-    fill: #dcdcde;
-}
-
-.item--style-2 .item__deco {
-    fill: #404040;
-}
-
-.item--style-3 .item__deco {
-    fill: #fff;
-}
-
-.item--style-3 .item__title {
-    color: #131314;
-}
-
-.item--style-4 .item__deco {
-    fill: #dcdcde;
-}
-
-.item--style-5 .item__deco {
-    fill: #404040;
-}
-
-.item--style-6 .item__deco {
-    fill: #dcdcde;
-}
-
-.item--style-7 .item__deco {
-    fill: #fff;
-}
-
-.item--style-7 .item__title {
-    color: #131314;
-}
-
-.item--style-8 .item__deco {
-    fill: #404040;
-}
-
-.item--style-9 .item__deco {
-    fill: #dcdcde;
-}
-
 @media screen and (max-width: 60em) {
     .item:first-of-type {
         grid-column: span 2;
@@ -242,3 +196,116 @@
 }
 
 /* end blob */
+
+/* sideways text */
+
+.designsivu-elementor-sideways {
+    position: relative;
+    overflow: hidden;
+}
+
+.designsivu-elementor-sideways .designsivu-elementor-sideways-text {
+    top: 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* end sideways text */
+
+/* striketrough */
+
+.dse-striketrough-wrapper {
+    position: relative;
+    z-index: 999;
+}
+
+.dse-striketrough {
+    position: absolute;
+    width: 1px;
+    margin-left: 50%;
+    top: 0;
+}
+
+.dse-striketrough-title-wrapper {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dse-striketrough-title {
+    display: inline-block;
+    max-width: 250px;
+}
+
+.dse-striketrough:after {
+    bottom: -4px;
+}
+
+.dse-striketrough:after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    position: absolute;
+    -webkit-transform: translate(-4px, -4px);
+    transform: translate(-4px, -4px);
+    -webkit-transition: opacity .15s ease-in .32s;
+    transition: opacity .15s ease-in .32s;
+    opacity: 1;
+}
+
+/* striketrough end */
+
+/* quote */
+
+.dse-quote {
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.dse-quote-text {
+    position: relative;
+}
+
+.dse-quote-text, .dse-quote-text p {
+    display: inline;
+}
+
+.dse-quote .dse-quote-mark {
+    display: block;
+    position: absolute;
+    width: 64px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+}
+
+.dse-quote .dse-quote-mark.dse-quote-mark-bottom {
+    bottom: 0;
+    right: -84px;
+}
+
+.dse-quote .dse-quote-mark.dse-quote-mark-top {
+    top: 0;
+    left: -84px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .dse-quote .dse-quote-mark {
+        width: 48px;
+    }
+
+    .dse-quote .dse-quote-mark.dse-quote-mark-bottom {
+        bottom: 10px;
+        right: -68px;
+    }
+
+    .dse-quote .dse-quote-mark.dse-quote-mark-top {
+        top: -48px;
+        left: 0;
+    }
+}
+
+/* end quote */
