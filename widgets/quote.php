@@ -115,7 +115,7 @@ class Quote extends Widget_Base
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ff0000',
                 'selectors' => [
-                    '{{WRAPPER}} .dse-quote .dse-quote-text' => 'color: {{VALUE}}'
+                    '{{WRAPPER}} .dse-quote .dse-quote--text' => 'color: {{VALUE}}'
                 ],
             ]
         );
@@ -126,7 +126,7 @@ class Quote extends Widget_Base
                 'name' => 'text_typography',
                 'label' => __('Typography', 'plugin-domain'),
                 'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-                'selector' => '{{WRAPPER}} .dse-quote .dse-quote-text',
+                'selector' => '{{WRAPPER}} .dse-quote .dse-quote--text',
             ]
         );
 
@@ -170,12 +170,12 @@ class Quote extends Widget_Base
         $settings = $this->get_settings_for_display();
         ?>
         <blockquote class="dse-quote">
-            <div class="dse-quote-text">
-                <img src="<?php echo(plugin_dir_url(__FILE__) . 'assets/images/quote-left.svg'); ?>"
-                     class="dse-quote-mark dse-quote-mark-top"/>
+            <div class="dse-quote--text">
+                <img src="<?php echo(plugin_dir_url(__FILE__) . 'assets/images/quote-left.png'); ?>"
+                     class="dse-quote--mark dse-quote--mark-top"/>
                 <p><?php echo($settings['text']); ?></p>
-                <img src="<?php echo(plugin_dir_url(__FILE__) . 'assets/images/quote-right.svg'); ?>"
-                     class="dse-quote-mark dse-quote-mark-bottom"/>
+                <img src="<?php echo(plugin_dir_url(__FILE__) . 'assets/images/quote-right.png'); ?>"
+                     class="dse-quote--mark dse-quote--mark-bottom"/>
             </div>
         </blockquote>
         <?php

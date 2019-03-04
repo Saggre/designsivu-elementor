@@ -262,17 +262,20 @@
 .dse-quote {
     margin: 0 auto;
     z-index: 2;
+    border: none;
+    padding: 0;
 }
 
-.dse-quote-text {
+.dse-quote--text {
     position: relative;
 }
 
-.dse-quote-text, .dse-quote-text p {
+.dse-quote--text, .dse-quote--text p {
     display: inline;
+    line-height: inherit;
 }
 
-.dse-quote .dse-quote-mark {
+.dse-quote .dse-quote--mark {
     display: block;
     position: absolute;
     width: 64px;
@@ -282,30 +285,178 @@
     content: '';
 }
 
-.dse-quote .dse-quote-mark.dse-quote-mark-bottom {
+.dse-quote .dse-quote--mark.dse-quote--mark-bottom {
     bottom: 0;
     right: -84px;
 }
 
-.dse-quote .dse-quote-mark.dse-quote-mark-top {
+.dse-quote .dse-quote--mark.dse-quote--mark-top {
     top: 0;
     left: -84px;
 }
 
 @media only screen and (max-width: 1000px) {
-    .dse-quote .dse-quote-mark {
+    .dse-quote .dse-quote--mark {
         width: 48px;
     }
 
-    .dse-quote .dse-quote-mark.dse-quote-mark-bottom {
+    .dse-quote .dse-quote--mark.dse-quote--mark-bottom {
         bottom: 10px;
         right: -68px;
     }
 
-    .dse-quote .dse-quote-mark.dse-quote-mark-top {
+    .dse-quote .dse-quote--mark.dse-quote--mark-top {
         top: -48px;
         left: 0;
     }
 }
 
 /* end quote */
+
+/* employees grid */
+
+.dse-employees {
+    font-family: 'Work Sans', Helvetica, sans-serif;
+}
+
+.dse-employee--cell {
+    padding: 2px;
+}
+
+.dse-employee--container {
+    position: relative;
+}
+
+.dse-employee--main-image, .dse-employee--hover-image {
+    object-fit: cover;
+    width: 100%;
+    transition: opacity 0.2s;
+}
+
+.dse-employee--main-image {
+    opacity: 1;
+}
+
+.dse-employee--hover-image {
+    opacity: 0;
+}
+
+.dse-employee--container:hover .dse-employee--hover-image {
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+.dse-employee--container:hover .dse-employee--main-image {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.dse-employee--image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dse-employee--images {
+    width: 100%;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.dse-employee--info-container {
+    height: 190px;
+    padding: 20px;
+}
+
+.dse-employee--static-info {
+    text-align: center;
+}
+
+.dse-employee--hover-wrapper {
+    position: relative;
+}
+
+.dse-employee--unhover-info {
+    text-align: center;
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.dse-employee--hover-info {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.dse-employee--container:hover .dse-employee--hover-info {
+    opacity: 1;
+    top: 0;
+}
+
+.dse-employee--container:hover .dse-employee--unhover-info {
+    opacity: 0;
+}
+
+.dse-employee--name {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2E3038;
+    font-family: 'Work Sans', Helvetica, sans-serif;
+}
+
+.dse-employee--quote-wrapper {
+    height: 100px;
+    text-align: center;
+}
+
+.dse-employee--quote {
+    color: #999;
+    font-size: 21px;
+    font-weight: 400;
+    font-family: 'Work Sans', Helvetica, sans-serif;
+}
+
+.dse-employee--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: #a0a0a0;
+    opacity: 0.1;
+    transition: all 0.4s;
+    pointer-events: none;
+}
+
+.dse-employee--container:hover .dse-employee--overlay {
+    background-color: transparent;
+}
+
+.dse-employee--title {
+    color: #999;
+    font-size: 18px;
+    font-family: 'Work Sans', Helvetica, sans-serif;
+}
+
+.dse-employee--phone {
+    color: #999;
+    font-size: 16px;
+    font-family: 'Work Sans', Helvetica, sans-serif;
+}
+
+.dse-employee--hr {
+    margin-bottom: 10px !important;
+    background-color: #f1f1f1 !important;
+    border-color: #f1f1f1 !important;
+}
+
+/* end employees grid */

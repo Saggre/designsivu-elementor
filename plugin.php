@@ -51,11 +51,11 @@ class Plugin
      */
     public function enqueue_scripts()
     {
+        wp_enqueue_script('foundation', plugins_url('/widgets/assets/js/foundation.min.js', __FILE__), '', '1.0.0', true);
         wp_enqueue_script('lottie', plugins_url('/widgets/assets/js/lottie.min.js', __FILE__), ['jquery'], '5.4.3', false);
         wp_enqueue_script('tilt', plugins_url('/widgets/assets/js/tilt.min.js', __FILE__), ['jquery'], '1.2.1', false);
         wp_enqueue_script('anime', plugins_url('/widgets/assets/js/anime.min.js', __FILE__), ['jquery'], '3.0.1', false);
-        wp_enqueue_script('designsivu-elementor', plugins_url('/widgets/assets/js/designsivu.elementor.js', __FILE__), ['jquery', 'lottie', 'anime', 'tilt'], '1.0.0', false);
-
+        wp_enqueue_script('dse-app', plugins_url('/widgets/assets/js/app.min.js', __FILE__), ['jquery', 'lottie', 'anime', 'tilt'], '1.0.0', false);
     }
 
     /**
@@ -63,7 +63,8 @@ class Plugin
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style('designsivu-elementor-style', plugins_url('/widgets/assets/css/designsivu-elementor-style.css', __FILE__));
+        wp_enqueue_style('foundation', plugins_url('/widgets/assets/css/foundation.min.css', __FILE__));
+        wp_enqueue_style('dse-app', plugins_url('/widgets/assets/css/app.min.css', __FILE__));
     }
 
     /**
@@ -83,6 +84,8 @@ class Plugin
         require_once(__DIR__ . '/widgets/sideways.php');
         require_once(__DIR__ . '/widgets/striketrough.php');
         require_once(__DIR__ . '/widgets/quote.php');
+        require_once(__DIR__ . '/widgets/employeeGallery.php');
+
     }
 
     /**
@@ -106,6 +109,7 @@ class Plugin
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Sideways());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Striketrough());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Quote());
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\EmployeeGallery());
     }
 
     /**
