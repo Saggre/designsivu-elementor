@@ -171,11 +171,9 @@ class Quote extends Widget_Base
         ?>
         <blockquote class="dse-quote">
             <div class="dse-quote--text">
-                <img src="<?php echo(plugin_dir_url(__FILE__) . 'assets/images/quote-left.png'); ?>"
-                     class="dse-quote--mark dse-quote--mark-top"/>
+                <div class="dse-quote--mark dse-quote--mark-top"></div>
                 <p><?php echo($settings['text']); ?></p>
-                <img src="<?php echo(plugin_dir_url(__FILE__) . 'assets/images/quote-right.png'); ?>"
-                     class="dse-quote--mark dse-quote--mark-bottom"/>
+                <div class="dse-quote--mark dse-quote--mark-bottom"></div>
             </div>
         </blockquote>
         <?php

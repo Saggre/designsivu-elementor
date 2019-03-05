@@ -208,7 +208,9 @@ class EmployeeGallery extends Widget_Base
                                             <h6 class="dse-employee--title">“<?php echo($item['quote']); ?>“</h6>
                                             <hr class="dse-employee--hr"/>
                                         <?php } ?>
-                                        <div class="dse-employee--phone"><?php echo($item['phone']); ?></div>
+                                        <?php if (!empty($item['phone'])) { ?>
+                                            <div class="dse-employee--phone"><?php echo($item['phone']); ?></div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
