@@ -20,6 +20,12 @@ if (!defined('ABSPATH')) {
 class Quote extends Widget_Base
 {
 
+    public function __construct($data = [], $args = null)
+    {
+        parent::__construct($data, $args);
+        $this->add_wpml_support();
+    }
+
     /**
      * Retrieve the widget name.
      *
@@ -177,6 +183,38 @@ class Quote extends Widget_Base
             </div>
         </blockquote>
         <?php
+    }
+
+    /**
+     * Add WPML translation support
+     *
+     * @access public
+     */
+    public function add_wpml_support()
+    {
+        add_filter('wpml_elementor_widgets_to_translate', [$this, 'wpml_widgets_to_translate_filter']);
+    }
+
+    /**
+     * Adds the current widget's fields to WPML translatable widgets
+     *
+     * @access public
+     * @return array
+     */
+    public function wpml_widgets_to_translate_filter($widgets)
+    {
+        $widgets[$this->get_name()] = [
+            'conditions' => ['widgetType' => $this->get_name()],
+            'fields' => [
+                [
+                    'field' => 'text',
+                    'type' => __('Text', 'designsivu-elementor'),
+                    'editor_type' => 'LINE'
+                ],
+            ],
+        ];
+
+        return $widgets;
     }
 
 }

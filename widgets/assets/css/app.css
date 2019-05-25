@@ -285,13 +285,13 @@
 .dse-quote .dse-quote--mark.dse-quote--mark-bottom {
     bottom: -2px;
     right: -84px;
-    background-image: url("https://malli.designsivu.fi/agentit/wp-content/themes/agentit/assets/images/quote-right.png");
+    background-image: url("https://agentit.fi/wp/wp-content/themes/agentit/assets/images/quote-right.png");
 }
 
 .dse-quote .dse-quote--mark.dse-quote--mark-top {
     top: -6px;
     left: -84px;
-    background-image: url("https://malli.designsivu.fi/agentit/wp-content/themes/agentit/assets/images/quote-left.png");
+    background-image: url("https://agentit.fi/wp/wp-content/themes/agentit/assets/images/quote-left.png");
 }
 
 @media only screen and (max-width: 1000px) {
@@ -366,7 +366,7 @@
 }
 
 .dse-employee--info-container {
-    height: 190px;
+    height: 210px;
     padding: 20px;
 }
 
@@ -448,6 +448,12 @@
 
 .dse-employee--phone {
     color: #999;
+    font-size: 16px;
+    font-family: 'Work Sans', Helvetica, sans-serif;
+}
+
+.dse-employee--linkedin a {
+    color: #0077B5;
     font-size: 16px;
     font-family: 'Work Sans', Helvetica, sans-serif;
 }

@@ -101,13 +101,15 @@ class Plugin
         // Its is now safe to include Widgets files
         $this->include_widgets_files();
 
+        $striketrough = new Widgets\Striketrough();
+
         // Register Widgets
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Lottie());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Tilt());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Scrolldown());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Blob());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Sideways());
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Striketrough());
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type($striketrough);
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\Quote());
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\EmployeeGallery());
     }
@@ -132,14 +134,6 @@ class Plugin
         add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
 
         add_action('elementor/element/parse_css', function ($post_css, $element) {
-            /*$item_width = some_get_theme_config_function( 'item_width' );
-            /**
-             * @var \Elementor\Post_CSS_File $post_css
-             * @var \Elementor\Element_Base  $element
-             */
-            /*$post_css->get_stylesheet()->add_rules( $element->get_unique_selector(), [
-                'width' => $item_width . 'px',
-            ] );*/
         }, 10, 2);
 
     }

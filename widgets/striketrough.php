@@ -20,6 +20,12 @@ if (!defined('ABSPATH')) {
 class Striketrough extends Widget_Base
 {
 
+    public function __construct($data = [], $args = null)
+    {
+        parent::__construct($data, $args);
+        $this->add_wpml_support();
+    }
+
     /**
      * Retrieve the widget name.
      *
@@ -102,7 +108,7 @@ class Striketrough extends Widget_Base
         $this->add_control(
             'title',
             [
-                'label' => __('Title', 'plugin-name'),
+                'label' => __('Title', 'designsivu-elementor'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => 'The quick brown fox',
             ]
@@ -111,7 +117,7 @@ class Striketrough extends Widget_Base
         $this->add_control(
             'color',
             [
-                'label' => __('Color', 'plugin-domain'),
+                'label' => __('Color', 'designsivu-elementor'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#ff0000',
                 'selectors' => [
@@ -126,7 +132,7 @@ class Striketrough extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'title_typography',
-                'label' => __('Typography', 'plugin-domain'),
+                'label' => __('Typography', 'designsivu-elementor'),
                 'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .dse-striketrough-title',
             ]
@@ -135,7 +141,7 @@ class Striketrough extends Widget_Base
         $this->add_control(
             'height',
             [
-                'label' => __('Height', 'plugin-name'),
+                'label' => __('Height', 'designsivu-elementor'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -157,7 +163,7 @@ class Striketrough extends Widget_Base
         $this->add_control(
             'overextended-height',
             [
-                'label' => __('Overextended Height', 'plugin-name'),
+                'label' => __('Overextended Height', 'designsivu-elementor'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -203,6 +209,38 @@ class Striketrough extends Widget_Base
             <div class="dse-striketrough"></div>
         </div>
         <?php
+    }
+
+    /**
+     * Add WPML translation support
+     *
+     * @access public
+     */
+    public function add_wpml_support()
+    {
+        add_filter('wpml_elementor_widgets_to_translate', [$this, 'wpml_widgets_to_translate_filter']);
+    }
+
+    /**
+     * Adds the current widget's fields to WPML translatable widgets
+     *
+     * @access public
+     * @return array
+     */
+    public function wpml_widgets_to_translate_filter($widgets)
+    {
+        $widgets[$this->get_name()] = [
+            'conditions' => ['widgetType' => $this->get_name()],
+            'fields' => [
+                [
+                    'field' => 'title',
+                    'type' => __('Text', 'designsivu-elementor'),
+                    'editor_type' => 'LINE'
+                ],
+            ],
+        ];
+
+        return $widgets;
     }
 
 }

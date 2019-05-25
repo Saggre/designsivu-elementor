@@ -86,7 +86,7 @@ class EmployeeGallery extends Widget_Base
             [
                 'label' => __('Quote', 'plugin-name'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => 'Live, love, laugh',
+                'default' => '',
             ]
         );
 
@@ -103,6 +103,15 @@ class EmployeeGallery extends Widget_Base
             'phone',
             [
                 'label' => __('Phone number', 'plugin-name'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '',
+            ]
+        );
+
+        $repeater->add_control(
+            'linkedin',
+            [
+                'label' => __('LinkedIn URL', 'plugin-name'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => '',
             ]
@@ -210,6 +219,9 @@ class EmployeeGallery extends Widget_Base
                                         <?php } ?>
                                         <?php if (!empty($item['phone'])) { ?>
                                             <div class="dse-employee--phone"><?php echo($item['phone']); ?></div>
+                                        <?php } ?>
+                                        <?php if (!empty($item['linkedin'])) { ?>
+                                            <div class="dse-employee--linkedin"><a href="<?php echo($item['linkedin']); ?>" target="_blank">LinkedIn</a></div>
                                         <?php } ?>
                                     </div>
                                 </div>
